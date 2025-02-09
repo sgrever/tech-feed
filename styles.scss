@@ -1,0 +1,105 @@
+/*-- scss:defaults --*/
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+$font-family-sans-serif: 'Archivo', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+$font-family-serif: 'Chakra Petch', serif;
+$chakra: "Chakra Petch", serif;
+
+$blue: #4368B6; 
+$green: #78A153;
+$yellow: #DEC23B;
+$orange: #E4930A;
+$red: #C53211;
+$gray: #64605f;
+$black: #242424;
+$tan: #fffdf5;
+
+
+// Base document colors
+$navbar-bg: $green; // navbar
+$navbar-fg: #ffffff; // navbar foreground elements
+$navbar-hl: $tan; // highlight color when hovering over navbar links
+$body-bg: $tan; // page background 
+$body-color: $black; // page text 
+$footer-bg: $yellow; // footer 
+$link-color: $blue; // hyperlinks 
+
+
+/*-- scss:rules --*/
+
+
+// No borders 
+.card {
+  border-width: 0px;
+  padding: 0px;
+}
+
+.card-body .html-fill-item .html-fill-container {
+  margin: 0px;
+  padding: 0px;
+}
+// Change font
+.rt-th {
+  font-family: $chakra;
+  font-size: x-large;
+}
+
+.navbar {
+  font-family: $chakra;
+  font-weight: 600;
+  font-size: x-large;
+}
+
+// Align body text 
+h3, .h3 {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+h5, .h5 {
+  text-align: center;
+  margin: 0px;
+  padding-bottom: 0px;
+  padding-top: 5px;
+}
+
+
+// Padding 
+.quarto-dashboard #quarto-content.quarto-dashboard-content {
+  padding: 0em;
+  padding-left: 7em;
+  padding-right: 7em;
+}
+
+
+// Tooltip text
+abbr[title] {
+  text-decoration: none;
+}
+
+// Table outline 
+//.rt-bordered .rt-table, .rt-outlined .rt-table {
+//  border-width: 1px;
+//  border-color: $gray;
+//  border-style: dotted;
+//}
+
+.rt-table {
+  border-style: dotted;
+}
+
+.Reactable {
+  border-style: dotted;
+  border-width: 1px;
+  border-color: $gray;
+}
+
+.Reactable .rt-thead {
+  border-bottom: dashed;
+  border-width: 1px;
+  border-color: #454545;
+}
