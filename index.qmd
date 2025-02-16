@@ -25,7 +25,6 @@ library(stringr)
 
 ```{r colors}
 #| output: false
-
 blue <- '#4368B6'
 green <- '#78A153' 
 yellow <- '#DEC23B' 
@@ -34,59 +33,13 @@ red <- '#C53211'
 gray <- '#64605f'
 black <- '#242424'
 tan <- '#fffdf5'
-
-
-######## ! IMPORTANT ! #################
-#  COMMENT OUT LATER
-########################################
-
-articles_table <- readRDS("data/articles_table.RDS")
-
-
 ```
 
-```{r build-query}
+```{r api-functiions}
 #| output: false
-#| eval: true
 
-# Establish parameters and build API string
-# Category options: https://newsapi.org/docs/endpoints/top-headlines
-category <- "technology" 
-key <- Sys.getenv('NEWS_API_KEY')
-end_date <- today() - ((wday(today()) %% 7)) # latest Saturday
-start_date <- end_date - 6 # preceding Sunday
-
-base_url <- glue(
-  "https://newsapi.org/v2/top-headlines?country=us&category={category}&from={start_date}&to={end_date}&sortBy=popularity&apiKey={key}"
-)
-```
-
-
-```{r perform-req}
-#| output: false
-#| eval: false
-
-######## ! IMPORTANT ! #################
-#  TURN ON EVAL: TRUE LATER
-########################################
-
-# Perform request and save json results
-news_raw <- base_url |> 
-  request() |> 
-  req_perform() |> 
-  resp_body_json()
-```
-
-```{r json-to-table}
-#| output: false
-#| eval: false
-
-
-######## ! IMPORTANT ! #################
-#  TURN ON EVAL: TRUE LATER
-########################################
-
-# Convert json list to table
+# Convert json to dataframe
+# Used in create_article_results()
 extract_elements <- function(x) {
   data.frame(
     source = ifelse(is.null(x$source$name), "", x$source$name),
@@ -100,182 +53,332 @@ extract_elements <- function(x) {
   )
 }
 
-articles_list <- purrr::map(
-  .x = news_raw$articles,
-  .f = ~ extract_elements(.x)
-)
-
-articles_table <- bind_rows(articles_list)
-```
-
-
-```{r custom-preview}
-#| output: false
-
-articles_prep <- articles_table |> 
-  mutate(display_preview = 
-           case_when(
-             description == "" & content == "" ~ "No preview",
-             description == "" ~ content,
-             content == "" ~ description, 
-             T ~ description
-           ))
-
-```
-
-
-```{r convert-img}
-#| output: false
-
-render_image <- function(url) {
-    as.character(tags$img(src = url, height = '100px'))
+create_article_results <- function(url) {
+  #' @title Create Article Results
+  #' 
+  #' @description 
+  #' Query NewsAPI and save results
+  #' The request is executed using httr2 and results are parsed with jsonlite.
+  #' Output is saved as an RDS file.
+  #' 
+  #' @param url (str)
+  #' Request URL with specified parameters
+  #' Ex: glue("https://newsapi.org/v2/everything?q=apple&from={start_date}&sortBy=publishedAt&apiKey={key}")
+  #'
+  #' @return 
+  #' Dataframe with API results
+  
+  # Create a request object
+  request <- request(url) 
+  
+  # Silence httr errors, if any  
+  response <- request |> 
+    req_error(is_error = \(resp) FALSE) |> 
+    req_perform()
+  
+  
+  ### If response code 200, ensure there are good results
+  if (response$status_code == 200) {
+    message("GOOD - Status 200") 
+    
+    news_raw <- response %>%
+    resp_body_json()
+    
+    if (news_raw$totalResults >= 5) {
+      
+      # Extract if >=5 results  
+      articles_list <- purrr::map(
+      .x = news_raw$articles,
+      .f = ~ extract_elements(.x)
+      )
+    
+      articles_table <- bind_rows(articles_list)
+    
+    } else {
+      
+      # Create blank table if <5 results
+      articles_table <- tibble(
+        source = "",
+        author = "",
+        title = "",
+        description = "",
+        content = "",
+        url = "",
+        url_image = "",
+        date = ""
+      )
+      
+    }
+  
+    
+  ### If response code 400, create blank table  
+  } else {
+    
+    articles_table <- tibble(
+      source = "",
+      author = "",
+      title = "",
+      description = "",
+      content = "",
+      url = "",
+      url_image = "",
+      date = ""
+    )
   }
 
-articles_image <- articles_prep |>
-  rowwise() |> 
-  mutate(url_image_display = render_image(url_image))
+  articles_table
+  
+}  
 ```
 
-```{r read-more-link}
+
+```{r prep-functions}
 #| output: false
 
-articles_image <- articles_image |> 
-  mutate(read_more = sprintf(
-    paste0('<a href="', 
-           URLdecode(url),
-           '" target="_blank">', 
-           'Read more',
-           '</a>')
-  ))
+# image render
+render_image <- function(url) {
+  as.character(tags$img(src = url, height = '100px'))
+}
 
+# set up for reactable
+display_prep <- function(tab) {
+  #' @title Prepare tables for display
+  #' 
+  #' @param tab 
+  #' Dataframe with API results
+  #' Output of create_article_results()
+  #' 
+  #' @output
+  #' Dataframe with 4 new columns, each for reactable.
+  #' `display_preview` = content to show underneath title
+  #' `url_image_display` = image URL that will render
+  #' `read_more` = external link to full article
+  #' `Rank` = something to sort table
+  
+  
+  articles_preview <- tab |> 
+    mutate(display_preview = 
+             case_when(
+               description == "" & content == "" ~ "No preview",
+               description == "" ~ content,
+               content == "" ~ description, 
+               T ~ description
+             ))  
+  
+  articles_image <- articles_preview |>
+    rowwise() |> 
+    mutate(url_image_display = render_image(url_image))
+  
+  articles_hyperlink <- articles_image |> 
+    # Hyperlink with icon
+    mutate(read_more = sprintf(
+      paste0('<a href="', 
+             URLdecode(url),
+             '" target="_blank">', 
+             '&#x1F517;',
+             '</a>')
+    )) |> 
+    # Sneak in some inline styling because CSS isn't working...
+    mutate(read_more = str_replace(
+      read_more,
+      ' target=',
+      ' style="text-decoration:none" target ='
+    )) |> 
+    select(
+      `Image` = url_image, # plain text link
+      `Title` = title,
+      `Preview` = display_preview,
+      `Link` = read_more, # active link
+      url
+    ) 
+
+  articles_dedup <- articles_hyperlink |> 
+    group_by(url) |> # some duplicates
+    slice(1) |> 
+    ungroup() |> 
+    head(20)
+  
+  articles_dedup$Rank <- seq(1:nrow(articles_dedup))
+  
+  articles_ordered <- articles_dedup |> 
+    select(Rank, everything())
+  
+  articles_ordered
+  
+}
+```
+
+```{r reactable-functions}
+#| output: false
+
+# hover text
 with_tooltip <- function(value, tooltip) {
   tags$abbr(
     style = "cursor: help",
     title = tooltip, 
     value)
 }
+
+# build reactable
+news_reactable <- function(display_data) {
+  #' @title Make News Reactble
+  #' 
+  #' @param display_data 
+  #' Dataframe with new columns for reactable render
+  #' Output of display_prep()
+  #' 
+  #' @output 
+  #' Reactable object with styling and tooltip
+  
+  if (nrow(display_data) <= 1) {
+    
+    "No results returned for keyword"
+    
+  } else {
+    
+    display_data |> 
+    reactable(
+      columns = list(
+        
+        Rank = colDef(maxWidth = 75, 
+                      vAlign = "center",
+                      header = with_tooltip(
+                        "Rank", "Popularity ranking according to NewsAPI"
+                      )
+        ),
+        
+        Image = colDef(
+          maxWidth = 300,
+          align = "center",
+          vAlign = "center",
+          cell = function(value) {
+            tags$img(src = value, height = "100px")
+          },
+          header = with_tooltip(
+            "Image", "Publication image, if available"
+          )
+        ),
+        
+        # Transform title to include Preview underneath it  
+        Title = colDef(
+          name = "Title / Preview",
+          vAlign = "center",
+          cell = function(value, index) {
+            Preview <- display_data$Preview[index]
+            div(
+              div(style = list(fontWeight = 600, fontSize = "24px"), value),
+              div(style = list(fontSize = "16px"), Preview)
+            )
+          },
+          header = with_tooltip(
+            "Title", "Article title and description"
+          )
+        ),
+        
+        Link = colDef(html = T, maxWidth = 75, vAlign = "center",
+                      header = with_tooltip(
+                        "Link", "Link to full article in new window"
+                      )
+        ),
+        
+        Preview = colDef(show = F),
+        url = colDef(show = F),
+        Image = colDef(show = F, vAlign = "center")
+      ),
+      highlight = T,
+      pagination = FALSE,
+      striped = T,
+      outlined = F,
+      theme = reactableTheme(
+        stripedColor = tan,
+        backgroundColor = '#F5F2E7',
+        highlightColor = '#e3e1dc'
+      )
+    )
+  }
+  
+}
+
 ```
 
 
+```{r set-urls}
+#| output: false
+#| eval: true
 
-# New {scrolling="true"}
+# Establish parameters and build API strings
+# Category options: https://newsapi.org/docs/endpoints/top-headlines
+key <- Sys.getenv('NEWS_API_KEY')
+end_date <- today() - ((wday(today()) %% 7)) # latest Saturday
+start_date <- end_date - 6 # preceding Sunday
+today <- Sys.Date()
+
+# Technology headlines
+pop_url <- glue(
+  "https://newsapi.org/v2/top-headlines?country=us&category=technology&from={start_date}&to={end_date}&sortBy=popularity&apiKey={key}"
+)
+
+# Keyword DOGE
+doge_url <- glue(
+  "https://newsapi.org/v2/everything?q=doge&from={start_date}&sortBy=popularity&language=en&apiKey={key}"
+)
+
+# Keyword CYBERSECURITY
+cyber_url <- glue(
+  "https://newsapi.org/v2/everything?q=cybersecurity&from={start_date}&sortBy=popularity&language=en&apiKey={key}"
+)
+
+# Keyword OPENAI
+openai_url <- glue(
+  "https://newsapi.org/v2/everything?q=openai&from={start_date}&sortBy=popularity&language=en&apiKey={key}"
+)
+```
 
 
-## Col 1 
+```{r DEL-import-tables}
+#| eval: true
 
-### Row {height = '20%'}
+######## ! IMPORTANT ! #################
+#  COMMENT OUT LATER
+########################################
 
+articles_popular <- readRDS("data/articles_popular.RDS") 
+articles_doge <- readRDS("data/articles_doge.RDS")
+articles_cyber <- readRDS("data/articles_cyber.RDS")
+articles_openai <- readRDS("data/articles_ai2.RDS")
+```
+
+```{r call-api}
+#| eval: false
+
+######## ! IMPORTANT ! #################
+#  ACTIVATE LATER
+########################################
+
+articles_popular <- create_article_results(pop_url)
+articles_doge <- create_article_results(doge_url)
+articles_cyber <- create_article_results(cyber_url)
+articles_openai <- create_article_results(openai_url)
+```
 
 ```{r format-start-date}
 #| output: false
 
-date_string <- paste0(month(start_date, label = T, abbr = F), " ",
-       day(start_date), ", ",
-       year(start_date))
+# used in callouts, such as:
+# <h3>This Week in Tech: [[ February 9, 2025 ]]</h3>  
+
+end_string <- paste0(month(end_date, label = T, abbr = F), " ",
+       day(end_date), ", ",
+       year(end_date))
 ```
-
-
-<h3>This Week in Tech: `r date_string`</h3>  
-
-<h5><i>Most popular technology articles from <a href="https://newsapi.org/" target = "_blank">NewsAPI</a>. Updated every Sunday.</i></h5>
-
-
-### Row {height = '70%'}
-
-```{r rctable-prep}
-articles_short <- articles_image |> 
-  # Replace "Read more" text with icon
-  mutate(read_more = str_replace(read_more,
-                                 'Read more',
-                                 '&#x1F517;')) |>
-  # Sneak in some inline styling because CSS isn't working...
-  mutate(read_more = str_replace(
-    read_more,
-    ' target=',
-    ' style="text-decoration:none" target ='
-  )) |> 
-  select(
-    `Image` = url_image, # plain text link
-    `Title` = title,
-    `Preview` = display_preview,
-    `Link` = read_more,
-    url
-  ) 
-
-articles_short$Rank <- seq(1:nrow(articles_short))
-```
-
-
-```{r reactable-make}
-articles_short |> 
- select(Rank, everything()) |> 
- reactable(
-    columns = list(
-      
-    Rank = colDef(maxWidth = 75, 
-                  vAlign = "center",
-                  header = with_tooltip(
-                    "Rank", "Popularity ranking according to NewsAPI"
-                    )
-                  ),
-    
-    Image = colDef(
-      maxWidth = 300,
-      align = "center",
-      vAlign = "center",
-      cell = function(value) {
-        tags$img(src = value, height = "100px")
-      },
-      header = with_tooltip(
-        "Image", "Publication image, if available"
-        )
-    ),
-    
-    # Transform title to include Preview underneath it  
-    Title = colDef(
-      name = "Title / Preview",
-      vAlign = "center",
-      cell = function(value, index) {
-        Preview <- articles_short$Preview[index]
-        div(
-          div(style = list(fontWeight = 600, fontSize = "24px"), value),
-          div(style = list(fontSize = "16px"), Preview)
-        )
-      },
-      header = with_tooltip(
-        "Title", "Article title and description"
-        )
-    ),
-    
-    Link = colDef(html = T, maxWidth = 75, vAlign = "center",
-                  header = with_tooltip(
-                    "Link", "Link to full article in new window"
-                    )
-                  ),
-    
-    Preview = colDef(show = F),
-    url = colDef(show = F),
-    Image = colDef(show = F, vAlign = "center")
-  ),
-  highlight = T,
-  pagination = FALSE,
-  striped = T,
-  outlined = F,
-  theme = reactableTheme(
-    stripedColor = tan,
-    backgroundColor = '#F5F2E7',
-    highlightColor = '#e3e1dc'
-  )
- )
-
-
-```
-
-
-### Row 3 {height='10%'}
 
 ```{r clean-dates}
 #| output: false
+
+
+# used in callouts, such as:
+# <h5>Articles from [[ 2/9/25 - 2/15/25 ]]</h5>
+
 
 drop_leading_zeros <- function(date) {
   slash_format <- format(date, "%m/%d/%y")
@@ -287,6 +390,113 @@ drop_leading_zeros <- function(date) {
 ```
 
 
+# Popular {scrolling="true"}
+
+## Col 1 
+
+### Row {height = '20%'}
+
+
+<h3>This Week in Tech: `r end_string`</h3>  
+
+<h5><i>Most popular technology articles from <a href="https://newsapi.org/" target = "_blank">NewsAPI</a>. Updated every Sunday.</i></h5>
+
+
+### Row {height = '70%'}
+
+
+```{r reactable-popular}
+articles_popular |> 
+  display_prep() |> 
+  news_reactable()
+```
+
+
+### Row 3 {height='10%'}
+
 <h5>Articles from `r drop_leading_zeros(start_date)` - `r drop_leading_zeros(end_date)`</h5>
+
+
+# Cybersecurity {scrolling="true"}
+
+## Col 1 
+
+### Row {height = '20%'}
+
+
+<h3>Cybersecurity higlights: `r end_string`</h3>  
+
+<h5><i>Most popular cybersecurity articles from <a href="https://newsapi.org/" target = "_blank">NewsAPI</a>. Updated every Sunday.</i></h5>
+
+
+### Row {height = '70%'}
+
+
+```{r reactable-cyber}
+articles_cyber |> 
+  display_prep() |> 
+  news_reactable()
+```
+
+
+### Row 3 {height='10%'}
+
+<h5>Articles from `r drop_leading_zeros(start_date)` - `r drop_leading_zeros(today)`</h5>
+
+
+# DOGE {scrolling="true"}
+
+## Col 1 
+
+### Row {height = '20%'}
+
+
+<h3>DOGE higlights: `r end_string`</h3>  
+
+<h5><i>Most popular Department of Government Efficiency articles from <a href="https://newsapi.org/" target = "_blank">NewsAPI</a>. Updated every Sunday.</i></h5>
+
+
+### Row {height = '70%'}
+
+
+```{r reactable-doge}
+articles_doge |> 
+  display_prep() |> 
+  news_reactable()
+```
+
+
+### Row 3 {height='10%'}
+
+<h5>Articles from `r drop_leading_zeros(start_date)` - `r drop_leading_zeros(today)`</h5>
+
+
+# OpenAI {scrolling="true"}
+
+## Col 1 
+
+### Row {height = '20%'}
+
+
+<h3>OpenAI higlights: `r end_string`</h3>  
+
+<h5><i>Most popular OpenAI articles from <a href="https://newsapi.org/" target = "_blank">NewsAPI</a>. Updated every Sunday.</i></h5>
+
+
+### Row {height = '70%'}
+
+
+```{r reactable-openai}
+articles_openai |> 
+  display_prep() |> 
+  news_reactable()
+```
+
+
+### Row 3 {height='10%'}
+
+<h5>Articles from `r drop_leading_zeros(start_date)` - `r drop_leading_zeros(today)`</h5>
+
+
 
 
