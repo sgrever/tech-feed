@@ -335,11 +335,11 @@ openai_url <- glue(
 ```
 
 
-```{r DEL-import-tables}
-#| eval: true
+```{r temp-import-tables}
+#| eval: false
 
 ######## ! IMPORTANT ! #################
-#  COMMENT OUT LATER
+#  EVAL: F BEFORE PUBLISHING
 ########################################
 
 articles_popular <- readRDS("data/articles_popular.RDS") 
@@ -349,10 +349,10 @@ articles_openai <- readRDS("data/articles_ai2.RDS")
 ```
 
 ```{r call-api}
-#| eval: false
+#| eval: true
 
 ######## ! IMPORTANT ! #################
-#  ACTIVATE LATER
+#  EVAL: T BEFORE PUBLISHING
 ########################################
 
 articles_popular <- create_article_results(pop_url)
@@ -375,10 +375,8 @@ end_string <- paste0(month(end_date, label = T, abbr = F), " ",
 ```{r clean-dates}
 #| output: false
 
-
 # used in callouts, such as:
 # <h5>Articles from [[ 2/9/25 - 2/15/25 ]]</h5>
-
 
 drop_leading_zeros <- function(date) {
   slash_format <- format(date, "%m/%d/%y")

@@ -3,6 +3,8 @@
 .RData
 .Ruserdata
 .Renviron
+README.html
+README_files/
 
 /.quarto/
 /_site/
