@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>TechFeed</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eea36ab90a3af027c3a582033354a7f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="site_libs/quarto-dashboard/stickythead.js"></script>
+<script src="site_libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="site_libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="site_libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+<script src="site_libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="site_libs/quarto-dashboard/components.js"></script>
+<link href="site_libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/core-js-2.5.3/shim.min.js"></script>
+<script src="site_libs/react-17.0.0/react.min.js"></script>
+<script src="site_libs/react-17.0.0/react-dom.min.js"></script>
+<script src="site_libs/reactwidget-1.0.0/react-tools.js"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+<script src="site_libs/reactable-binding-0.4.4/reactable.js"></script>
+
+
+</head>
+
+<body class="quarto-dashboard nav-sidebar fullcontent">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">TechFeed</a></div>
+        
+        
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-popular" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#popular" data-scrolling="true" href="#popular" aria-controls="popular" aria-selected="true"><span class="nav-link-text">Popular</span></a></li><li class="nav-item" role="presentation"><a id="tab-cybersecurity" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cybersecurity" data-scrolling="true" href="#cybersecurity" aria-controls="cybersecurity" aria-selected="false"><span class="nav-link-text">Cybersecurity</span></a></li><li class="nav-item" role="presentation"><a id="tab-doge" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#doge" data-scrolling="true" href="#doge" aria-controls="doge" aria-selected="false"><span class="nav-link-text">DOGE</span></a></li><li class="nav-item" role="presentation"><a id="tab-openai" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#openai" data-scrolling="true" href="#openai" aria-controls="openai" aria-selected="false"><span class="nav-link-text">OpenAI</span></a></li></ul></div></div>
+</nav>
+</header>
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container dashboard-scrolling quarto-dashboard-pages">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<!-- main -->
+
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="flow" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div id="popular" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="columns" data-scrolling="true" aria-labelledby="tab-popular">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 90fr) minmax(3em, 10fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<h3>
+This Week in Tech: February 15, 2025
+</h3>
+<h5>
+<i>Most popular technology articles from <a href="https://newsapi.org/" target="_blank">NewsAPI</a>. Updated every Sunday.</i>
+</h5>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="reactable html-widget html-fill-item html-fill-container" id="htmlwidget-e0545885eec1b3d323c7" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e0545885eec1b3d323c7">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Rank":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],"Image":["https://cdn.arstechnica.net/wp-content/uploads/2025/02/diablo-debunk-1152x648.jpg","https://cdn.decrypt.co/resize/1024/height/512/wp-content/uploads/2023/08/Tim-Cook-shutterstock_1069919405-16x9-1-gID_7.jpg","https://gizmodo.com/app/uploads/2025/02/AI-made-chess-game.jpg","","https://techcrunch.com/wp-content/uploads/2025/02/perplexity-deep-research.jpeg?resize=1200,675","https://cdn.videocardz.com/1/2025/02/5070TI-PRICE-HERO.jpg","https://cdn.videocardz.com/1/2025/02/XFX-9070-SWFT-2.jpg","https://cdn.wccftech.com/wp-content/uploads/2025/01/Official-Unboxing-_-NVIDIA-GeForce-RTX-5090-Founders-Edition-1-48-screenshot.png","https://ychef.files.bbci.co.uk/624x351/p0kr900r.jpg","https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iG._nW4uC1qI/v1/1200x799.jpg","https://imageio.forbes.com/specials-images/imageserve/67ae1a61173c6651a6fdbc06/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds","https://imageio.forbes.com/specials-images/imageserve/5f42444852e296b796bf05b7/0x0.jpg?format=jpg&crop=3605,2221,x451,y252,safe&height=900&width=1600&fit=bounds","https://images.macrumors.com/t/4TuH3UT7mmHv7VxNSaEsoAEhnZQ=/3840x/article-new/2023/01/m2-pro-mac-mini.jpg","https://www.mlive.com/resizer/v2/T2PXOIDQOFF35DKRLWMAPAGWPA.jpg?auth=6201cbe5489f36355c5ad3513a619664e8657607c0352d6a9782e99b32d7d142&width=1280&quality=90","https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25172293/Baldur_s_Gate_3_Screenshot_2023.12.18___16.05.38.44.png?quality=90&strip=all&crop=21.770833333333%2C4.3888888888889%2C72.5%2C67.481093659104&w=1200","https://www.sammyfans.com/wp-content/uploads/2025/02/Samsung-Galaxy-S25-Ultra-S24-Ultra-1000x576.jpg","https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/Screenshot-2025-02-15-at-8.26.49%E2%80%AFAM.png?quality=90&strip=all&crop=0%2C8.1704889019984%2C100%2C83.659022196003&w=1200","https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/Alexa-teaser-image-2.png?quality=90&strip=all&crop=0%2C8.7560957155298%2C100%2C82.48780856894&w=1200","https://www.videogameschronicle.com/files/2024/09/playstation-30th-annivesary-pre-orders.jpg"],"Title":["The Diablo hackers that debunked a record speedrun - Ars Technica","Apple Teasing Home Robots? Top Analyst Predicts Surprise for iPhone Giant - Decrypt","‘A Maze the Size of Earth’: New AI Tackles Math Problems That Take Millions of Steps - Gizmodo","The Impact of Generative AI on Critical Thinking [pdf] - Hacker News","Perplexity launches its own freemium ‘deep research’ product - TechCrunch","MicroCenter confirms GeForce RTX 5070 Ti prices: one MSRP model and $930 average price - VideoCardz.com","XFX Radeon RX 9070 XT Listed at $750, RX 9070 at $650 in leaked Amazon Listing - VideoCardz.com","NVIDIA’s GeForce RTX 50 Series Supply Might Increase Drastically In The Future; Team Green Might Dedicate AI Production Lines Towards Consumer GPUs - Wccftech","Pathfinder 1: The airship that could usher in a new age - BBC.com","Apple Aims to Boost Vision Pro with AI Features, Spatial Content App - Bloomberg","iPhone SE 4: Apple Confirms New Product Launch Date Is Almost Here - Forbes","Gmail And Outlook 2FA Codes Hacked—Do Not Use Sign-In - Forbes","Apple is Now Selling a Refurbished Mac Mini for Just $319 (!) - MacRumors","Asking Eric: I was asked to expand our dinner’s guest list, but had to say no - MLive.com","5 great co-op games are on deep discount in Steam’s new sale - Polygon","Samsung Galaxy devices getting February 2025 security patch before One UI 7 update [List] - Sammy Fans","The Vision Pro NBA app turns some games into a miniature 3D diorama - The Verge","Amazon’s revamped Alexa might launch over a month after its announcement event - The Verge","Sony reportedly might not hold a full PS5 summer showcase this year - Video Games Chronicle"],"Preview":["Investigators decompiled the game to search through 2.2 billion random dungeon seeds.","While tech giant Apple is rumored to be working on humanoid and other home robots, analysts say production won’t begin before 2028—if at all.","A newly developed machine learning algorithm is taking on math problems that have vexed experts for decades.","No preview","Perplexity has become the latest AI company to release an in-depth research tool, with a new feature announced Friday. Google unveiled a similar feature","MicroCenter confirms AIB focus on overpriced OC variants Good luck with MSRP models.  As we have repeatedly mentioned, the upcoming RTX 5070 Ti launch set for next week will not include an NVIDIA Founders Edition. This means that the only way to buy this card…","XFX RDNA4 GPUs on Amazon AMD Radeon RX 9070 series from XFX have been listed by Amazon, as spotted by hardware and data-miner @momomo_us. XFX Radeon RX 9070 SWIFT White, Source: Bullslab Right off the bat, the cheapest RX 9070 will cost $649.99, while the che…","The supply of NVIDIA's GeForce RTX 50 GPUs may improve drastically, as Team Green might dedicate some of its AI production lines.","Pathfinder 1, bankrolled by a Google billionaire, is an attempt to revive the airship. A century after terrifying disasters, is it a safe-enough bet?","Apple Inc. is planning to add Apple Intelligence to its Vision Pro headset, along with an updated mode for guest users and a spatial content app, as it seeks to boost interest in the device.","Apple has just teased something cryptic, and it looks like we know exactly when the iPhone SE 4th generation will be here. Here's the full run-down.","If you see this sign-in, you are being attacked—here's what to know.","A few days ago, we reported that Apple's refurbished Mac mini pricing had a problem, and it appears that Apple has taken note.   Apple was...","A couple of my friends asked if they could bring a friend or two … or three the day of the dinner.","Steam has marked down several great cooperative games, from Portal 2 to Baldur’s Gate 3. Here are five of my favorite games on the sales list","It’s February 2025, and Samsung is getting ready to start the One UI 7 update rollout for Galaxy devices. Before the stable One UI 7 update for older Galaxy devices, Samsung began releasing the February 2025 security update. You can check the list of Galaxy d…","A new Tabletop feature for the Vision Pro NBA app lets League Pass subscribers watch live games on a small 3D-rendered basketball court.","The Washington Post reports Amazon is pushing its AI upgrade of Alexa to at least the end of March while it works on accuracy issues.","PlayStation is considering publishing a smaller State of Play instead, it's claimed"],"Link":["<a href=\"https://arstechnica.com/gaming/2025/02/the-diablo-hackers-that-debunked-a-record-speedrun/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://decrypt.co/306093/apple-home-robots-analyst-predicts-surprise\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://gizmodo.com/a-maze-the-size-of-earth-new-ai-tackles-math-problems-that-take-millions-of-steps-2000564057\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://news.ycombinator.com/item?id\\\\u003d43057907\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://techcrunch.com/2025/02/15/perplexity-launches-its-own-freemium-deep-research-product/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://videocardz.com/newz/microcenter-confirms-geforce-rtx-5070-ti-prices-one-msrp-model-and-930-average-price\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://videocardz.com/pixel/xfx-radeon-rx-9070-xt-listed-at-750-rx-9070-at-650-in-leaked-amazon-listing\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://wccftech.com/nvidias-geforce-rtx-50-series-supply-might-increase-drastically-in-the-future/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.bbc.com/future/article/20250214-pathfinder-1-the-airship-that-could-usher-in-a-new-age\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.bloomberg.com/news/articles/2025-02-15/apple-vision-pro-visionos-2-4-adds-apple-intelligence-spatial-content\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.forbes.com/sites/davidphelan/2025/02/15/iphone-se-4-apple-confirms-new-product-launch-date-just-days-away-release-date/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.forbes.com/sites/zakdoffman/2025/02/15/gmail-and-outlook-2fa-codes-hacked-do-not-use-sign-in/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.macrumors.com/2025/02/15/apple-revises-refurbished-mac-mini-pricing/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.mlive.com/advice/2025/02/asking-eric-guest-list-for-chosen-family-dinner-expands-too-much.html\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.polygon.com/gaming/524005/best-co-op-games-steam-sale-portal-2-tetris-effect\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.sammyfans.com/2025/02/15/samsung-galaxy-devices-getting-february-2025-security-patch-before-one-ui-7-update-list/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.theverge.com/news/613796/nba-tabletop-ar-vision-pro-app-league-pass\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.theverge.com/news/613821/amazon-alexa-ai-upgrade-delayed-accuracy-issues\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://www.videogameschronicle.com/news/sony-reportedly-might-not-hold-a-full-ps5-summer-showcase-this-year/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>"],"url":["https://arstechnica.com/gaming/2025/02/the-diablo-hackers-that-debunked-a-record-speedrun/","https://decrypt.co/306093/apple-home-robots-analyst-predicts-surprise","https://gizmodo.com/a-maze-the-size-of-earth-new-ai-tackles-math-problems-that-take-millions-of-steps-2000564057","https://news.ycombinator.com/item?id\\\\u003d43057907","https://techcrunch.com/2025/02/15/perplexity-launches-its-own-freemium-deep-research-product/","https://videocardz.com/newz/microcenter-confirms-geforce-rtx-5070-ti-prices-one-msrp-model-and-930-average-price","https://videocardz.com/pixel/xfx-radeon-rx-9070-xt-listed-at-750-rx-9070-at-650-in-leaked-amazon-listing","https://wccftech.com/nvidias-geforce-rtx-50-series-supply-might-increase-drastically-in-the-future/","https://www.bbc.com/future/article/20250214-pathfinder-1-the-airship-that-could-usher-in-a-new-age","https://www.bloomberg.com/news/articles/2025-02-15/apple-vision-pro-visionos-2-4-adds-apple-intelligence-spatial-content","https://www.forbes.com/sites/davidphelan/2025/02/15/iphone-se-4-apple-confirms-new-product-launch-date-just-days-away-release-date/","https://www.forbes.com/sites/zakdoffman/2025/02/15/gmail-and-outlook-2fa-codes-hacked-do-not-use-sign-in/","https://www.macrumors.com/2025/02/15/apple-revises-refurbished-mac-mini-pricing/","https://www.mlive.com/advice/2025/02/asking-eric-guest-list-for-chosen-family-dinner-expands-too-much.html","https://www.polygon.com/gaming/524005/best-co-op-games-steam-sale-portal-2-tetris-effect","https://www.sammyfans.com/2025/02/15/samsung-galaxy-devices-getting-february-2025-security-patch-before-one-ui-7-update-list/","https://www.theverge.com/news/613796/nba-tabletop-ar-vision-pro-app-league-pass","https://www.theverge.com/news/613821/amazon-alexa-ai-upgrade-delayed-accuracy-issues","https://www.videogameschronicle.com/news/sony-reportedly-might-not-hold-a-full-ps5-summer-showcase-this-year/"]},"columns":[{"id":"Rank","name":"Rank","type":"numeric","header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Popularity ranking according to NewsAPI"},"children":["Rank"]},"maxWidth":75,"vAlign":"center"},{"id":"Image","name":"Image","type":"character","cell":[{"name":"img","attribs":{"src":"https://cdn.arstechnica.net/wp-content/uploads/2025/02/diablo-debunk-1152x648.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://cdn.decrypt.co/resize/1024/height/512/wp-content/uploads/2023/08/Tim-Cook-shutterstock_1069919405-16x9-1-gID_7.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://gizmodo.com/app/uploads/2025/02/AI-made-chess-game.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://techcrunch.com/wp-content/uploads/2025/02/perplexity-deep-research.jpeg?resize=1200,675","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://cdn.videocardz.com/1/2025/02/5070TI-PRICE-HERO.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://cdn.videocardz.com/1/2025/02/XFX-9070-SWFT-2.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://cdn.wccftech.com/wp-content/uploads/2025/01/Official-Unboxing-_-NVIDIA-GeForce-RTX-5090-Founders-Edition-1-48-screenshot.png","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://ychef.files.bbci.co.uk/624x351/p0kr900r.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iG._nW4uC1qI/v1/1200x799.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://imageio.forbes.com/specials-images/imageserve/67ae1a61173c6651a6fdbc06/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://imageio.forbes.com/specials-images/imageserve/5f42444852e296b796bf05b7/0x0.jpg?format=jpg&crop=3605,2221,x451,y252,safe&height=900&width=1600&fit=bounds","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://images.macrumors.com/t/4TuH3UT7mmHv7VxNSaEsoAEhnZQ=/3840x/article-new/2023/01/m2-pro-mac-mini.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://www.mlive.com/resizer/v2/T2PXOIDQOFF35DKRLWMAPAGWPA.jpg?auth=6201cbe5489f36355c5ad3513a619664e8657607c0352d6a9782e99b32d7d142&width=1280&quality=90","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25172293/Baldur_s_Gate_3_Screenshot_2023.12.18___16.05.38.44.png?quality=90&strip=all&crop=21.770833333333%2C4.3888888888889%2C72.5%2C67.481093659104&w=1200","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://www.sammyfans.com/wp-content/uploads/2025/02/Samsung-Galaxy-S25-Ultra-S24-Ultra-1000x576.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/Screenshot-2025-02-15-at-8.26.49%E2%80%AFAM.png?quality=90&strip=all&crop=0%2C8.1704889019984%2C100%2C83.659022196003&w=1200","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/Alexa-teaser-image-2.png?quality=90&strip=all&crop=0%2C8.7560957155298%2C100%2C82.48780856894&w=1200","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://www.videogameschronicle.com/files/2024/09/playstation-30th-annivesary-pre-orders.jpg","height":"100px"},"children":[]}],"header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Publication image, if available"},"children":["Image"]},"maxWidth":300,"align":"center","vAlign":"center"},{"id":"Title","name":"Title / Preview","type":"character","cell":[{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["The Diablo hackers that debunked a record speedrun - Ars Technica"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Investigators decompiled the game to search through 2.2 billion random dungeon seeds."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Apple Teasing Home Robots? Top Analyst Predicts Surprise for iPhone Giant - Decrypt"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["While tech giant Apple is rumored to be working on humanoid and other home robots, analysts say production won’t begin before 2028—if at all."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["‘A Maze the Size of Earth’: New AI Tackles Math Problems That Take Millions of Steps - Gizmodo"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["A newly developed machine learning algorithm is taking on math problems that have vexed experts for decades."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["The Impact of Generative AI on Critical Thinking [pdf] - Hacker News"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["No preview"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Perplexity launches its own freemium ‘deep research’ product - TechCrunch"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Perplexity has become the latest AI company to release an in-depth research tool, with a new feature announced Friday. Google unveiled a similar feature"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["MicroCenter confirms GeForce RTX 5070 Ti prices: one MSRP model and $930 average price - VideoCardz.com"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["MicroCenter confirms AIB focus on overpriced OC variants Good luck with MSRP models.  As we have repeatedly mentioned, the upcoming RTX 5070 Ti launch set for next week will not include an NVIDIA Founders Edition. This means that the only way to buy this card…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["XFX Radeon RX 9070 XT Listed at $750, RX 9070 at $650 in leaked Amazon Listing - VideoCardz.com"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["XFX RDNA4 GPUs on Amazon AMD Radeon RX 9070 series from XFX have been listed by Amazon, as spotted by hardware and data-miner @momomo_us. XFX Radeon RX 9070 SWIFT White, Source: Bullslab Right off the bat, the cheapest RX 9070 will cost $649.99, while the che…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["NVIDIA’s GeForce RTX 50 Series Supply Might Increase Drastically In The Future; Team Green Might Dedicate AI Production Lines Towards Consumer GPUs - Wccftech"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The supply of NVIDIA's GeForce RTX 50 GPUs may improve drastically, as Team Green might dedicate some of its AI production lines."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Pathfinder 1: The airship that could usher in a new age - BBC.com"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Pathfinder 1, bankrolled by a Google billionaire, is an attempt to revive the airship. A century after terrifying disasters, is it a safe-enough bet?"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Apple Aims to Boost Vision Pro with AI Features, Spatial Content App - Bloomberg"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Apple Inc. is planning to add Apple Intelligence to its Vision Pro headset, along with an updated mode for guest users and a spatial content app, as it seeks to boost interest in the device."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["iPhone SE 4: Apple Confirms New Product Launch Date Is Almost Here - Forbes"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Apple has just teased something cryptic, and it looks like we know exactly when the iPhone SE 4th generation will be here. Here's the full run-down."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Gmail And Outlook 2FA Codes Hacked—Do Not Use Sign-In - Forbes"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["If you see this sign-in, you are being attacked—here's what to know."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Apple is Now Selling a Refurbished Mac Mini for Just $319 (!) - MacRumors"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["A few days ago, we reported that Apple's refurbished Mac mini pricing had a problem, and it appears that Apple has taken note.   Apple was..."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Asking Eric: I was asked to expand our dinner’s guest list, but had to say no - MLive.com"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["A couple of my friends asked if they could bring a friend or two … or three the day of the dinner."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["5 great co-op games are on deep discount in Steam’s new sale - Polygon"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Steam has marked down several great cooperative games, from Portal 2 to Baldur’s Gate 3. Here are five of my favorite games on the sales list"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Samsung Galaxy devices getting February 2025 security patch before One UI 7 update [List] - Sammy Fans"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["It’s February 2025, and Samsung is getting ready to start the One UI 7 update rollout for Galaxy devices. Before the stable One UI 7 update for older Galaxy devices, Samsung began releasing the February 2025 security update. You can check the list of Galaxy d…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["The Vision Pro NBA app turns some games into a miniature 3D diorama - The Verge"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["A new Tabletop feature for the Vision Pro NBA app lets League Pass subscribers watch live games on a small 3D-rendered basketball court."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Amazon’s revamped Alexa might launch over a month after its announcement event - The Verge"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The Washington Post reports Amazon is pushing its AI upgrade of Alexa to at least the end of March while it works on accuracy issues."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Sony reportedly might not hold a full PS5 summer showcase this year - Video Games Chronicle"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["PlayStation is considering publishing a smaller State of Play instead, it's claimed"]}]}],"header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Article title and description"},"children":["Title"]},"vAlign":"center"},{"id":"Preview","name":"Preview","type":"character","show":false},{"id":"Link","name":"Link","type":"character","header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Link to full article in new window"},"children":["Link"]},"html":true,"maxWidth":75,"vAlign":"center"},{"id":"url","name":"url","type":"character","show":false}],"pagination":false,"highlight":true,"striped":true,"theme":{"backgroundColor":"#F5F2E7","stripedColor":"#fffdf5","highlightColor":"#e3e1dc"},"dataKey":"d70e4deac7aaafd440bc025248809bcd"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<h5>
+Articles from 2/9/25 - 2/15/25
+</h5>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="cybersecurity" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" data-scrolling="true" aria-labelledby="tab-cybersecurity">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 90fr) minmax(3em, 10fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<h3>
+Cybersecurity higlights: February 15, 2025
+</h3>
+<h5>
+<i>Most popular cybersecurity articles from <a href="https://newsapi.org/" target="_blank">NewsAPI</a>. Updated every Sunday.</i>
+</h5>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="reactable html-widget html-fill-item html-fill-container" id="htmlwidget-f6ae63ed5e2aede20d55" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f6ae63ed5e2aede20d55">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Rank":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"Image":["https://digiday.com/wp-content/uploads/sites/3/2024/03/tiktok-chop-digiday.gif","https://digiday.com/wp-content/uploads/sites/3/2025/01/publisher-llms-digiday.jpg","https://i.abcnewsfe.com/a/64e29954-caca-4657-bb1e-96dbdbf3453a/kristi-noem-5-gty-gmh-250129_1738188002465_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/85b757b9-892c-4ccd-91b6-5d9904d0e29e/wirestory_5bac8ce416c46b4fbe44c94ae5874b39_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/04fe27ce-19a0-4abf-b0f7-f4ab271967ea/musk-modi-india-washington-ap-lv-250213_1739484109266_hpMain_16x9.jpg?w=1600","https://about.fb.com/wp-content/uploads/2025/02/Global-Romance-Scam-Awareness-Campaign_Header.jpg?w=1200","https://photos5.appleinsider.com/gallery/54139-109079-48836-95405-000-lead-UK-xl-xl.jpg","","https://media.zenfs.com/en/moneywise_327/c89c3e3577abad82babd29933f9956bb","https://gizmodo.com/app/uploads/2025/01/DeepSeek-iPhone-App.jpg","https://gizmodo.com/app/uploads/2024/10/Elon-Musk-speaks-at-Trumps-Madison-Square-Garden-rally.jpg","https://a.fsdn.com/sd/topics/themedia_64.png","https://a.fsdn.com/sd/topics/uk_64.png","https://phandroid.com/wp-content/uploads/2021/10/Security-Panel-Pixel-6-Pro.jpg","https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMV_7QDoHZosCoqKrd-ZpwL-uuHBvtNaNRyayal8neUbOqPGjmJ-ir41EfosP81EsF9S1PPUJSbfX5y1VjoQTZbhefTYAInoGRP2aA_hD7AAoLq2LvBqVU-r28KMju3U93Xv9IudpWFWMem6HZbdMK_ivX0ZWWwFBZj9LxInorWMGwmPRVRbP3R7F7eHGI/s728-rw-e365/dev-hacking.png","https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ6-Lt-TwBnhLVcwLcvvM4STMuSpq9We8Y7pLWdk_WqvgB6yH90grw-OU4vREhfmQ__p80wAEQDhmuTnLlz8yXkguqBjKEU9_BOjUHpWwUeelZLdTo7m0GlujkyXje1TpEcbWULfYzec3Vh8lzBWHABHcLPZvA8VUAakqW2pQuPQSR8XTH2X7Tbv5wXnoO/s728-rw-e365/whoAMI.png","https://thepointsguy.global.ssl.fastly.net/us/originals/2025/02/dca-control-tower.jpg","https://api.time.com/wp-content/uploads/2025/02/GettyImages-2198395777.jpg?quality=85&w=1200&h=628&crop=1","https://venturebeat.com/wp-content/uploads/2025/02/nuneybits_Vector_art_of_artificial_intelligence_risk_exisential_d765ac11-0402-4b30-a3ac-0e723de7844e.webp?w=853?w=1200&strip=all","https://venturebeat.com/wp-content/uploads/2025/02/HERO-IMAGE.jpg?w=964?w=1200&strip=all"],"Title":["Why TikTok’s loss might be Instagram’s gain as Reels grows in content and audience","AI Briefing: As DeepSeek catches new heat, Big Tech trumpets another quarter of AI earnings","DHS cuts at least 405 employees from workforce","US cyber agency puts election security staffers who worked with the states on leave","Judge will consider continuing to block DOGE from accessing Treasury payment systems","How to Avoid Romance Scams This Valentine’s Day","UK's iPhone spying backdoor demand sparks bipartisan US lawmaker anger","EFF sues Elon Musk and DOGE to block their access to federal employee data","This Denver woman had to fight her bank for a refund after scammers stole $7,363 — and her bank first ruled it legit","Cybersecurity Experts Warn of DeepSeek Vulnerabilities as Governments Ban App","I Regret to Inform You That a 19-Year-Old DOGE Stooge Named ‘Big Balls’ is Now Advising the State Department","Server Attack Stops the Presses at US Newspaper Chain","UK Drops 'Safety' From Its AI Body, Inks Partnership With Anthropic","Chrome’s AI-powered password change could be a game-changer","Lazarus Group Deploys Marstech1 JavaScript Implant in Targeted Developer Attacks","New “whoAMI” Attack Exploits AWS AMI Name Confusion for Remote Code Execution","Is flying safe? A spotlight on air travel after the worst US aviation disaster in 16 years","What DOGE Is Doing Across the Federal Government","Anthropic CEO Dario Amodei warns: AI will match ‘country of geniuses’ by 2026","CrowdStrike just killed 40 hours of SOC pain: Here’s how they did it"],"Preview":["Instagram Reels may be the closest experience to TikTok currently, but can it seize this opportunity to overtake its rival?","Amid more hype of generative AI for products and ads, security experts and legal filings note numerous reasons for caution.","The Department of Homeland Security has cut 405 employees from its workforce, a DHS official first told ABC News on Friday.","Staffers at the nation’s cybersecurity agency whose job is to ensure the security of U.S. elections have been placed on administrative leave, jeopardizing critical support provided to state and local election offices across the country","A federal judge in New York will consider whether to continue blocking Elon Musk and DOGE from accessing sensitive Treasury Department payment systems.","Ahead of Valentine's Day and as part of our global anti-scam awareness campaign to protect people online, we’re sharing relevant tools, research and tips.\nThe post How to Avoid Romance Scams This Valentine’s Day appeared first on Meta.","US lawmakers want Britain to drop its demand for a backdoor into iOS, and say that if they don't, America should cut down intelligence sharing with the country.UK ParliamentBoth Republican and Democrat committee members claim that Britain's demand for Apple t…","The Electronic Frontier Foundation, along with multiple federal employee unions, have filed a lawsuit against Elon Musk and his Department of Government Efficiency (DOGE) team to block their access to sensitive and identifying information on millions of Ameri…","One expert says banks are struggling to keep up with fraud investigations.","An analysis of DeepSeek's mobile application by the firm NowSecure revealed the app was transmitting data unencrypted.","The Musk minion has been made a \"senior advisor\" at America's diplomatic agency.","They publish 77 newspapers in 26 U.S. states, according to Wikipedia. But this week a \"cybersecurity event\" at the newspapers' parent company \"disrupted systems and networks,\" according to an article at one of their news sites which quotes an email sent to em…","An anonymous reader quotes a report from TechCrunch: The U.K. government wants to make a hard pivot into boosting its economy and industry with AI, and as part of that, it's pivoting an institution that it founded a little over a year ago for a very different…","It seems that Google is testing out a new feature for Chrome using an AI-powered tool that can automatically change your passwords.\nThe post Chrome’s AI-powered password change could be a game-changer appeared first on Phandroid.","The North Korean threat actor known as the Lazarus Group has been linked to a previously undocumented JavaScript implant named Marstech1 as part of limited targeted attacks against developers.\nThe active operation has been dubbed Marstech Mayhem by SecuritySc…","Cybersecurity researchers have disclosed a new type of name confusion attack called whoAMI that allows anyone who publishes an Amazon Machine Image (AMI) with a specific name to gain code execution within the Amazon Web Services (AWS) account.\n\"If executed at…","“Is air travel safe?” For more than a decade and a half, answering that question in the U.S. was a simple “yes,” owed to a remarkable stretch of safety that had seen 16 years pass without a deadly crash involving a U.S. airline. Last month, that long-running …","Elon Musk’s DOGE team has people across the federal government, disrupting services, accessing data, and cutting staff. Here's a guide...","Anthropic CEO Dario Amodei warns AI will reach genius-level capabilities by 2026, calling Paris Summit a \"missed opportunity\" as U.S. and European leaders clash over regulation of rapidly advancing artificial intelligence systems.","CrowdStrike is launching Charlotte AI Detection Triage, saving SOC teams over 40 hours a week and delivering over 98% accuracy."],"Link":["<a href=\"http://digiday.com/marketing/why-tiktoks-loss-might-be-instagrams-gain-as-reels-grows-in-content-and-audience/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"http://digiday.com/media/ai-briefing-as-deepseek-catches-new-heat-big-tech-trumpets-another-quarter-of-ai-earnings/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/dhs-cuts-405-employees-workforce/story?id=118847047\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/wireStory/us-cyber-agency-puts-election-security-staffers-worked-118671767\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/judge-continuing-block-musk-doge-accessing-treasury-payment/story?id=118825220\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://about.fb.com/news/2025/02/how-avoid-romance-scams-this-valentines-day/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://appleinsider.com/articles/25/02/13/uks-iphone-spying-backdoor-demand-sparks-bipartisan-us-lawmaker-anger\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_25a29b3f-2a9e-4591-87f4-c934a9bb9edd\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://finance.yahoo.com/news/denver-woman-had-fight-her-214400154.html\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://gizmodo.com/cybersecurity-experts-warn-of-deepseek-vulnerabilities-as-governments-ban-app-2000561633\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://gizmodo.com/i-regret-to-inform-you-that-a-19-year-old-doge-stooge-named-big-balls-is-now-advising-the-state-department-2000562035\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://news.slashdot.org/story/25/02/10/0614233/server-attack-stops-the-presses-at-us-newspaper-chain\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://news.slashdot.org/story/25/02/14/0513218/uk-drops-safety-from-its-ai-body-inks-partnership-with-anthropic\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://phandroid.com/2025/02/11/chromes-ai-powered-password-change-could-be-a-game-changer/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://thehackernews.com/2025/02/lazarus-group-deploys-marstech1.html\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://thehackernews.com/2025/02/new-whoami-attack-exploits-aws-ami-name.html\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://thepointsguy.com/news/is-flying-safe/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://time.com/7222251/doge-musk-federal-workers-government/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://venturebeat.com/ai/anthropic-ceo-dario-amodei-warns-ai-will-match-country-of-geniuses-by-2026/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://venturebeat.com/security/crowdstrikes-ai-slashes-soc-workloads-over-40-hours-a-week/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>"],"url":["http://digiday.com/marketing/why-tiktoks-loss-might-be-instagrams-gain-as-reels-grows-in-content-and-audience/","http://digiday.com/media/ai-briefing-as-deepseek-catches-new-heat-big-tech-trumpets-another-quarter-of-ai-earnings/","https://abcnews.go.com/Politics/dhs-cuts-405-employees-workforce/story?id=118847047","https://abcnews.go.com/Politics/wireStory/us-cyber-agency-puts-election-security-staffers-worked-118671767","https://abcnews.go.com/US/judge-continuing-block-musk-doge-accessing-treasury-payment/story?id=118825220","https://about.fb.com/news/2025/02/how-avoid-romance-scams-this-valentines-day/","https://appleinsider.com/articles/25/02/13/uks-iphone-spying-backdoor-demand-sparks-bipartisan-us-lawmaker-anger","https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_25a29b3f-2a9e-4591-87f4-c934a9bb9edd","https://finance.yahoo.com/news/denver-woman-had-fight-her-214400154.html","https://gizmodo.com/cybersecurity-experts-warn-of-deepseek-vulnerabilities-as-governments-ban-app-2000561633","https://gizmodo.com/i-regret-to-inform-you-that-a-19-year-old-doge-stooge-named-big-balls-is-now-advising-the-state-department-2000562035","https://news.slashdot.org/story/25/02/10/0614233/server-attack-stops-the-presses-at-us-newspaper-chain","https://news.slashdot.org/story/25/02/14/0513218/uk-drops-safety-from-its-ai-body-inks-partnership-with-anthropic","https://phandroid.com/2025/02/11/chromes-ai-powered-password-change-could-be-a-game-changer/","https://thehackernews.com/2025/02/lazarus-group-deploys-marstech1.html","https://thehackernews.com/2025/02/new-whoami-attack-exploits-aws-ami-name.html","https://thepointsguy.com/news/is-flying-safe/","https://time.com/7222251/doge-musk-federal-workers-government/","https://venturebeat.com/ai/anthropic-ceo-dario-amodei-warns-ai-will-match-country-of-geniuses-by-2026/","https://venturebeat.com/security/crowdstrikes-ai-slashes-soc-workloads-over-40-hours-a-week/"]},"columns":[{"id":"Rank","name":"Rank","type":"numeric","header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Popularity ranking according to NewsAPI"},"children":["Rank"]},"maxWidth":75,"vAlign":"center"},{"id":"Image","name":"Image","type":"character","cell":[{"name":"img","attribs":{"src":"https://digiday.com/wp-content/uploads/sites/3/2024/03/tiktok-chop-digiday.gif","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://digiday.com/wp-content/uploads/sites/3/2025/01/publisher-llms-digiday.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/64e29954-caca-4657-bb1e-96dbdbf3453a/kristi-noem-5-gty-gmh-250129_1738188002465_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/85b757b9-892c-4ccd-91b6-5d9904d0e29e/wirestory_5bac8ce416c46b4fbe44c94ae5874b39_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/04fe27ce-19a0-4abf-b0f7-f4ab271967ea/musk-modi-india-washington-ap-lv-250213_1739484109266_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://about.fb.com/wp-content/uploads/2025/02/Global-Romance-Scam-Awareness-Campaign_Header.jpg?w=1200","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://photos5.appleinsider.com/gallery/54139-109079-48836-95405-000-lead-UK-xl-xl.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://media.zenfs.com/en/moneywise_327/c89c3e3577abad82babd29933f9956bb","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://gizmodo.com/app/uploads/2025/01/DeepSeek-iPhone-App.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://gizmodo.com/app/uploads/2024/10/Elon-Musk-speaks-at-Trumps-Madison-Square-Garden-rally.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://a.fsdn.com/sd/topics/themedia_64.png","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://a.fsdn.com/sd/topics/uk_64.png","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://phandroid.com/wp-content/uploads/2021/10/Security-Panel-Pixel-6-Pro.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMV_7QDoHZosCoqKrd-ZpwL-uuHBvtNaNRyayal8neUbOqPGjmJ-ir41EfosP81EsF9S1PPUJSbfX5y1VjoQTZbhefTYAInoGRP2aA_hD7AAoLq2LvBqVU-r28KMju3U93Xv9IudpWFWMem6HZbdMK_ivX0ZWWwFBZj9LxInorWMGwmPRVRbP3R7F7eHGI/s728-rw-e365/dev-hacking.png","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ6-Lt-TwBnhLVcwLcvvM4STMuSpq9We8Y7pLWdk_WqvgB6yH90grw-OU4vREhfmQ__p80wAEQDhmuTnLlz8yXkguqBjKEU9_BOjUHpWwUeelZLdTo7m0GlujkyXje1TpEcbWULfYzec3Vh8lzBWHABHcLPZvA8VUAakqW2pQuPQSR8XTH2X7Tbv5wXnoO/s728-rw-e365/whoAMI.png","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://thepointsguy.global.ssl.fastly.net/us/originals/2025/02/dca-control-tower.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://api.time.com/wp-content/uploads/2025/02/GettyImages-2198395777.jpg?quality=85&w=1200&h=628&crop=1","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://venturebeat.com/wp-content/uploads/2025/02/nuneybits_Vector_art_of_artificial_intelligence_risk_exisential_d765ac11-0402-4b30-a3ac-0e723de7844e.webp?w=853?w=1200&strip=all","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://venturebeat.com/wp-content/uploads/2025/02/HERO-IMAGE.jpg?w=964?w=1200&strip=all","height":"100px"},"children":[]}],"header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Publication image, if available"},"children":["Image"]},"maxWidth":300,"align":"center","vAlign":"center"},{"id":"Title","name":"Title / Preview","type":"character","cell":[{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Why TikTok’s loss might be Instagram’s gain as Reels grows in content and audience"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Instagram Reels may be the closest experience to TikTok currently, but can it seize this opportunity to overtake its rival?"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["AI Briefing: As DeepSeek catches new heat, Big Tech trumpets another quarter of AI earnings"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Amid more hype of generative AI for products and ads, security experts and legal filings note numerous reasons for caution."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["DHS cuts at least 405 employees from workforce"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The Department of Homeland Security has cut 405 employees from its workforce, a DHS official first told ABC News on Friday."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["US cyber agency puts election security staffers who worked with the states on leave"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Staffers at the nation’s cybersecurity agency whose job is to ensure the security of U.S. elections have been placed on administrative leave, jeopardizing critical support provided to state and local election offices across the country"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Judge will consider continuing to block DOGE from accessing Treasury payment systems"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["A federal judge in New York will consider whether to continue blocking Elon Musk and DOGE from accessing sensitive Treasury Department payment systems."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["How to Avoid Romance Scams This Valentine’s Day"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Ahead of Valentine's Day and as part of our global anti-scam awareness campaign to protect people online, we’re sharing relevant tools, research and tips.\nThe post How to Avoid Romance Scams This Valentine’s Day appeared first on Meta."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["UK's iPhone spying backdoor demand sparks bipartisan US lawmaker anger"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["US lawmakers want Britain to drop its demand for a backdoor into iOS, and say that if they don't, America should cut down intelligence sharing with the country.UK ParliamentBoth Republican and Democrat committee members claim that Britain's demand for Apple t…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["EFF sues Elon Musk and DOGE to block their access to federal employee data"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The Electronic Frontier Foundation, along with multiple federal employee unions, have filed a lawsuit against Elon Musk and his Department of Government Efficiency (DOGE) team to block their access to sensitive and identifying information on millions of Ameri…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["This Denver woman had to fight her bank for a refund after scammers stole $7,363 — and her bank first ruled it legit"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["One expert says banks are struggling to keep up with fraud investigations."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Cybersecurity Experts Warn of DeepSeek Vulnerabilities as Governments Ban App"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["An analysis of DeepSeek's mobile application by the firm NowSecure revealed the app was transmitting data unencrypted."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["I Regret to Inform You That a 19-Year-Old DOGE Stooge Named ‘Big Balls’ is Now Advising the State Department"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The Musk minion has been made a \"senior advisor\" at America's diplomatic agency."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Server Attack Stops the Presses at US Newspaper Chain"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["They publish 77 newspapers in 26 U.S. states, according to Wikipedia. But this week a \"cybersecurity event\" at the newspapers' parent company \"disrupted systems and networks,\" according to an article at one of their news sites which quotes an email sent to em…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["UK Drops 'Safety' From Its AI Body, Inks Partnership With Anthropic"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["An anonymous reader quotes a report from TechCrunch: The U.K. government wants to make a hard pivot into boosting its economy and industry with AI, and as part of that, it's pivoting an institution that it founded a little over a year ago for a very different…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Chrome’s AI-powered password change could be a game-changer"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["It seems that Google is testing out a new feature for Chrome using an AI-powered tool that can automatically change your passwords.\nThe post Chrome’s AI-powered password change could be a game-changer appeared first on Phandroid."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Lazarus Group Deploys Marstech1 JavaScript Implant in Targeted Developer Attacks"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The North Korean threat actor known as the Lazarus Group has been linked to a previously undocumented JavaScript implant named Marstech1 as part of limited targeted attacks against developers.\nThe active operation has been dubbed Marstech Mayhem by SecuritySc…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["New “whoAMI” Attack Exploits AWS AMI Name Confusion for Remote Code Execution"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Cybersecurity researchers have disclosed a new type of name confusion attack called whoAMI that allows anyone who publishes an Amazon Machine Image (AMI) with a specific name to gain code execution within the Amazon Web Services (AWS) account.\n\"If executed at…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Is flying safe? A spotlight on air travel after the worst US aviation disaster in 16 years"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["“Is air travel safe?” For more than a decade and a half, answering that question in the U.S. was a simple “yes,” owed to a remarkable stretch of safety that had seen 16 years pass without a deadly crash involving a U.S. airline. Last month, that long-running …"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["What DOGE Is Doing Across the Federal Government"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Elon Musk’s DOGE team has people across the federal government, disrupting services, accessing data, and cutting staff. Here's a guide..."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Anthropic CEO Dario Amodei warns: AI will match ‘country of geniuses’ by 2026"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Anthropic CEO Dario Amodei warns AI will reach genius-level capabilities by 2026, calling Paris Summit a \"missed opportunity\" as U.S. and European leaders clash over regulation of rapidly advancing artificial intelligence systems."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["CrowdStrike just killed 40 hours of SOC pain: Here’s how they did it"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["CrowdStrike is launching Charlotte AI Detection Triage, saving SOC teams over 40 hours a week and delivering over 98% accuracy."]}]}],"header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Article title and description"},"children":["Title"]},"vAlign":"center"},{"id":"Preview","name":"Preview","type":"character","show":false},{"id":"Link","name":"Link","type":"character","header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Link to full article in new window"},"children":["Link"]},"html":true,"maxWidth":75,"vAlign":"center"},{"id":"url","name":"url","type":"character","show":false}],"pagination":false,"highlight":true,"striped":true,"theme":{"backgroundColor":"#F5F2E7","stripedColor":"#fffdf5","highlightColor":"#e3e1dc"},"dataKey":"79ca5ea6ebace8fc1a6400c4a6744142"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<h5>
+Articles from 2/9/25 - 2/17/25
+</h5>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="doge" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" data-scrolling="true" aria-labelledby="tab-doge">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 90fr) minmax(3em, 10fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<h3>
+DOGE higlights: February 15, 2025
+</h3>
+<h5>
+<i>Most popular Department of Government Efficiency articles from <a href="https://newsapi.org/" target="_blank">NewsAPI</a>. Updated every Sunday.</i>
+</h5>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="reactable html-widget html-fill-item html-fill-container" id="htmlwidget-3a4e7f1b756f0289f473" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3a4e7f1b756f0289f473">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Rank":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"Image":["https://i.abcnewsfe.com/a/7f0b76ca-e1a5-4231-8020-e492b60617bb/elizabeth-warren-protest-trump-musk-gty-lv-250210-2_1739226685568_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/3e47c695-32ef-4a0e-a958-4bcbd3e5c2e6/elon-musk-1-rt-gmh-250211_1739306906731_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/6d593656-c1a2-4a85-a9d3-1e6424204096/trump-musk-rt-ml-250214_1739561834692_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/6d593656-c1a2-4a85-a9d3-1e6424204096/trump-musk-rt-ml-250214_1739561834692_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/469b3570-58cd-4752-b923-b1fd7ac94f80/elon-musk-7-epa-gmh-250213._1739471952162_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/c52cd128-af84-47e5-a762-c4beb0b52622/musk-main_1739359959443_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/a1fd5a48-9c02-4a08-ac99-4b1e575cbe01/cfpb-3-gty-gmh-250210_1739208882303_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/97bd93af-1482-43c8-b08e-9a7fd00e82fd/donald-trump-36-gty-gmh-250211_1739307099975_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/51a674ec-048d-4858-aa9e-ec252a57e2ba/elon-musk-8-gty-gmh-250211_1739310485012_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/e2efd34e-a999-4698-a5b3-eb19427d55df/trump1-ap-ml-250212_1739378756148_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/d9ed6db7-222e-45fe-a7bb-b840c8205b18/donald-trump-37-rt-gmh-250211_1739307649302_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/436cbf92-0d34-47fc-88b7-303d7ec7e42d/SF-city-hall-25-2-14-gty-jm_1739582362322_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/475e4ac2-dd55-4cc1-88b6-688aa8161322/doge-logo-ss-jt-250215_1739636795875_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/2b77ee3f-b243-43a5-8f37-6a4ec6e35744/corecivic-prison-california-gty-lv-250212_1739396555495_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/04fe27ce-19a0-4abf-b0f7-f4ab271967ea/musk-modi-india-washington-ap-lv-250213_1739484109266_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/5df632e5-1eb8-482f-b444-42e14b37ae91/california-gty-er-250210_1739208687989_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/6d593656-c1a2-4a85-a9d3-1e6424204096/trump-musk-rt-ml-250214_1739561834692_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/17c5875d-0417-4a04-bdff-d6d0beeba0c6/elon-musk-3-rt-gmh-250122_1737574963311_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/8fa80dc2-9716-4276-bf01-e7856b598678/trump-foreign-corrupt-executive-order-ap-lv-250210_1739227555956_hpMain_16x9.jpg?w=1600","https://i.abcnewsfe.com/a/62062b6d-c96a-4a47-bfb4-c5099db76f0e/250209_abc_social_silver_langur_monkey7_hpMain_16x9.jpg?w=992"],"Title":["Democrats vow to fight shutdown of consumer watchdog agency","Elon Musk faces 1st questions on DOGE's transparency as he joins Trump in Oval Office","Federal judge hands Musk’s DOGE a win on data access at 3 agencies","Former government ethics director warns of corruption danger","Key Musk DOGE adviser meets with leaders of Medicare agency","Musk staffer 'mistakenly' given ability to edit Treasury payment system, filings say","As Musk, Trump administration target CFPB, Democrats defend consumer watchdog","Musk's son 'Lil X' steals spotlight in the Oval Office","Official DOGE website updated, promising 'savings' updates by Valentine's Day","Educators sound alarm on programs tangled up in Education Department shutdown","Trump and Musk so far provide scant evidence for their claims of fraud","3 men 'in DOGE shirts' show up at San Francisco City Hall demanding files: Sheriff","Agency data shared by DOGE online sparks concern among intelligence community","Executives at private prison firm say they expect 'significant growth'","Judge will consider continuing to block DOGE from accessing Treasury payment systems","Judge to consider order to keep DOGE from accessing student loan databases","Judge who oversaw Trump's Jan. 6 case will hear arguments over Musk's authority","As Musk cuts federal spending, his own firms have received billions in contracts","As Trump pushes whirlwind agenda, DOJ is challenged to defend his orders in court","WATCH: Bronx Zoo welcomes baby silvered langur monkey"],"Preview":["President Donald Trump has said the Consumer Financial Protection Bureau was \"very important to get rid of.\"","Elon Musk had not faced reporters since taking the lead on Trump's mandate to dismantle much of the federal government.","Elon Musk's Department of Government Efficiency can continue to access sensitive records from at least three federal agencies, a judge ruled.","Linsey Davis spoke with David Huitema, the former director of the U.S. Office of Government Ethics, two days after President Trump dismissed him from his role.","The Centers for Medicare & Medicaid Services oversees coverage for 160 million.","The filings also provided new insights into DOGE's ongoing mission with the Treasury Department.","The agency is at a virtual standstill as Elon Musk's DOGE and the White House's Russell Vought take over.","The billionaire has brought his four-year-old to numerous Washington events.","Three weeks after its launch in January, Elon Musk's official government website for DOGE was updated on Wednesday and no longer features only a logo.","If the Department of Education is dismantled, as some Republican lawmakers are hoping to do, public school K-12 educators fear what programs could be impacted.","Elon Musk and Donald Trump have claimed from the Oval Office and on social media widespread fraud in government, but many of them are unsupported by facts.","Three men in DOGE shirts showed up to San Francisco City Hall demanding city files. The men are not believed to actually be DOGE representatives, authorities said.","Elon Musk's Department of Government Efficiency has sparked concerns within the intelligence community after it posted information about an agency to its website.","Executives at the private prison firm CoreCivic say they anticipate the Trump administration's policies will lead to \"the most significant growth\" in the firm's history.","A federal judge in New York will consider whether to continue blocking Elon Musk and DOGE from accessing sensitive Treasury Department payment systems.","A federal judge will hear arguments on efforts by a group of California public university students to block DOGE from accessing sensitive federal student loan records.","The federal judge who oversaw Donald Trump's Jan. 6 case will hear arguments over tech billionaire Elon Musk's authority to run the Department of Government Efficiency.","As Elon Musk has led an effort to slash government spending, his own companies have, over the last few years, received billions of dollars in government contracts.","As Donald Trump presses his breakneck effort to remake the government, the flurry of lawsuits pushing back have seemingly overwhelming the lawyers defending his orders.","New York's Bronx Zoo announced that a male baby silvered langur is now on exhibit."],"Link":["<a href=\"https://abcnews.go.com/Politics/democrats-vow-fight-shutdown-consumer-financial-protection-bureau/story?id=118716115\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/elon-musk-faces-1st-questions-doges-transparency-joins/story?id=118705771\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/federal-judge-hands-musks-doge-win-data-access/story?id=118851973\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/former-government-ethics-director-warns-corruption-danger/story?id=118737576\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/key-musk-doge-adviser-meets-leaders-medicare-agency/story?id=118843035\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/musk-staffer-mistakenly-ability-edit-treasury-department-payment/story?id=118726686\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/musk-trump-administration-target-cfpb-democrats-tout-consumer/story?id=118664275\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/musks-son-lil-steals-spotlight-oval-office/story?id=118713138\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/official-doge-website-updated-promising-savings-updates-valentines/story?id=118757305\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/teachers-fear-shuttering-department-education-diminish-vital-programs/story?id=118648947\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/Politics/trump-musk-provide-scant-evidence-claims-fraud/story?id=118751843\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/3-men-doge-shirts-show-san-francisco-city/story?id=118849482\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/agency-data-shared-doge-online-sparks-concern-intelligence/story?id=118858837\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/executives-private-prison-firm-corecivic-expect-significant-growth/story?id=118758271\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/judge-continuing-block-musk-doge-accessing-treasury-payment/story?id=118825220\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/judge-order-doge-accessing-student-loan-databases/story?id=118655806\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/judge-oversaw-trumps-jan-6-case-hear-arguments/story?id=118840054\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/musk-works-slash-federal-spending-firms-received-billions/story?id=118589121\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/trump-pushes-whirlwind-agenda-doj-challenged-defend-orders/story?id=118690783\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://abcnews.go.com/US/video/bronx-zoo-welcomes-baby-silvered-langur-monkey-118631484\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>"],"url":["https://abcnews.go.com/Politics/democrats-vow-fight-shutdown-consumer-financial-protection-bureau/story?id=118716115","https://abcnews.go.com/Politics/elon-musk-faces-1st-questions-doges-transparency-joins/story?id=118705771","https://abcnews.go.com/Politics/federal-judge-hands-musks-doge-win-data-access/story?id=118851973","https://abcnews.go.com/Politics/former-government-ethics-director-warns-corruption-danger/story?id=118737576","https://abcnews.go.com/Politics/key-musk-doge-adviser-meets-leaders-medicare-agency/story?id=118843035","https://abcnews.go.com/Politics/musk-staffer-mistakenly-ability-edit-treasury-department-payment/story?id=118726686","https://abcnews.go.com/Politics/musk-trump-administration-target-cfpb-democrats-tout-consumer/story?id=118664275","https://abcnews.go.com/Politics/musks-son-lil-steals-spotlight-oval-office/story?id=118713138","https://abcnews.go.com/Politics/official-doge-website-updated-promising-savings-updates-valentines/story?id=118757305","https://abcnews.go.com/Politics/teachers-fear-shuttering-department-education-diminish-vital-programs/story?id=118648947","https://abcnews.go.com/Politics/trump-musk-provide-scant-evidence-claims-fraud/story?id=118751843","https://abcnews.go.com/US/3-men-doge-shirts-show-san-francisco-city/story?id=118849482","https://abcnews.go.com/US/agency-data-shared-doge-online-sparks-concern-intelligence/story?id=118858837","https://abcnews.go.com/US/executives-private-prison-firm-corecivic-expect-significant-growth/story?id=118758271","https://abcnews.go.com/US/judge-continuing-block-musk-doge-accessing-treasury-payment/story?id=118825220","https://abcnews.go.com/US/judge-order-doge-accessing-student-loan-databases/story?id=118655806","https://abcnews.go.com/US/judge-oversaw-trumps-jan-6-case-hear-arguments/story?id=118840054","https://abcnews.go.com/US/musk-works-slash-federal-spending-firms-received-billions/story?id=118589121","https://abcnews.go.com/US/trump-pushes-whirlwind-agenda-doj-challenged-defend-orders/story?id=118690783","https://abcnews.go.com/US/video/bronx-zoo-welcomes-baby-silvered-langur-monkey-118631484"]},"columns":[{"id":"Rank","name":"Rank","type":"numeric","header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Popularity ranking according to NewsAPI"},"children":["Rank"]},"maxWidth":75,"vAlign":"center"},{"id":"Image","name":"Image","type":"character","cell":[{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/7f0b76ca-e1a5-4231-8020-e492b60617bb/elizabeth-warren-protest-trump-musk-gty-lv-250210-2_1739226685568_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/3e47c695-32ef-4a0e-a958-4bcbd3e5c2e6/elon-musk-1-rt-gmh-250211_1739306906731_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/6d593656-c1a2-4a85-a9d3-1e6424204096/trump-musk-rt-ml-250214_1739561834692_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/6d593656-c1a2-4a85-a9d3-1e6424204096/trump-musk-rt-ml-250214_1739561834692_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/469b3570-58cd-4752-b923-b1fd7ac94f80/elon-musk-7-epa-gmh-250213._1739471952162_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/c52cd128-af84-47e5-a762-c4beb0b52622/musk-main_1739359959443_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/a1fd5a48-9c02-4a08-ac99-4b1e575cbe01/cfpb-3-gty-gmh-250210_1739208882303_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/97bd93af-1482-43c8-b08e-9a7fd00e82fd/donald-trump-36-gty-gmh-250211_1739307099975_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/51a674ec-048d-4858-aa9e-ec252a57e2ba/elon-musk-8-gty-gmh-250211_1739310485012_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/e2efd34e-a999-4698-a5b3-eb19427d55df/trump1-ap-ml-250212_1739378756148_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/d9ed6db7-222e-45fe-a7bb-b840c8205b18/donald-trump-37-rt-gmh-250211_1739307649302_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/436cbf92-0d34-47fc-88b7-303d7ec7e42d/SF-city-hall-25-2-14-gty-jm_1739582362322_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/475e4ac2-dd55-4cc1-88b6-688aa8161322/doge-logo-ss-jt-250215_1739636795875_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/2b77ee3f-b243-43a5-8f37-6a4ec6e35744/corecivic-prison-california-gty-lv-250212_1739396555495_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/04fe27ce-19a0-4abf-b0f7-f4ab271967ea/musk-modi-india-washington-ap-lv-250213_1739484109266_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/5df632e5-1eb8-482f-b444-42e14b37ae91/california-gty-er-250210_1739208687989_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/6d593656-c1a2-4a85-a9d3-1e6424204096/trump-musk-rt-ml-250214_1739561834692_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/17c5875d-0417-4a04-bdff-d6d0beeba0c6/elon-musk-3-rt-gmh-250122_1737574963311_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/8fa80dc2-9716-4276-bf01-e7856b598678/trump-foreign-corrupt-executive-order-ap-lv-250210_1739227555956_hpMain_16x9.jpg?w=1600","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i.abcnewsfe.com/a/62062b6d-c96a-4a47-bfb4-c5099db76f0e/250209_abc_social_silver_langur_monkey7_hpMain_16x9.jpg?w=992","height":"100px"},"children":[]}],"header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Publication image, if available"},"children":["Image"]},"maxWidth":300,"align":"center","vAlign":"center"},{"id":"Title","name":"Title / Preview","type":"character","cell":[{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Democrats vow to fight shutdown of consumer watchdog agency"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["President Donald Trump has said the Consumer Financial Protection Bureau was \"very important to get rid of.\""]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Elon Musk faces 1st questions on DOGE's transparency as he joins Trump in Oval Office"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Elon Musk had not faced reporters since taking the lead on Trump's mandate to dismantle much of the federal government."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Federal judge hands Musk’s DOGE a win on data access at 3 agencies"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Elon Musk's Department of Government Efficiency can continue to access sensitive records from at least three federal agencies, a judge ruled."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Former government ethics director warns of corruption danger"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Linsey Davis spoke with David Huitema, the former director of the U.S. Office of Government Ethics, two days after President Trump dismissed him from his role."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Key Musk DOGE adviser meets with leaders of Medicare agency"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The Centers for Medicare & Medicaid Services oversees coverage for 160 million."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Musk staffer 'mistakenly' given ability to edit Treasury payment system, filings say"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The filings also provided new insights into DOGE's ongoing mission with the Treasury Department."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["As Musk, Trump administration target CFPB, Democrats defend consumer watchdog"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The agency is at a virtual standstill as Elon Musk's DOGE and the White House's Russell Vought take over."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Musk's son 'Lil X' steals spotlight in the Oval Office"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The billionaire has brought his four-year-old to numerous Washington events."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Official DOGE website updated, promising 'savings' updates by Valentine's Day"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Three weeks after its launch in January, Elon Musk's official government website for DOGE was updated on Wednesday and no longer features only a logo."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Educators sound alarm on programs tangled up in Education Department shutdown"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["If the Department of Education is dismantled, as some Republican lawmakers are hoping to do, public school K-12 educators fear what programs could be impacted."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Trump and Musk so far provide scant evidence for their claims of fraud"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Elon Musk and Donald Trump have claimed from the Oval Office and on social media widespread fraud in government, but many of them are unsupported by facts."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["3 men 'in DOGE shirts' show up at San Francisco City Hall demanding files: Sheriff"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Three men in DOGE shirts showed up to San Francisco City Hall demanding city files. The men are not believed to actually be DOGE representatives, authorities said."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Agency data shared by DOGE online sparks concern among intelligence community"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Elon Musk's Department of Government Efficiency has sparked concerns within the intelligence community after it posted information about an agency to its website."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Executives at private prison firm say they expect 'significant growth'"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Executives at the private prison firm CoreCivic say they anticipate the Trump administration's policies will lead to \"the most significant growth\" in the firm's history."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Judge will consider continuing to block DOGE from accessing Treasury payment systems"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["A federal judge in New York will consider whether to continue blocking Elon Musk and DOGE from accessing sensitive Treasury Department payment systems."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Judge to consider order to keep DOGE from accessing student loan databases"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["A federal judge will hear arguments on efforts by a group of California public university students to block DOGE from accessing sensitive federal student loan records."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Judge who oversaw Trump's Jan. 6 case will hear arguments over Musk's authority"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The federal judge who oversaw Donald Trump's Jan. 6 case will hear arguments over tech billionaire Elon Musk's authority to run the Department of Government Efficiency."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["As Musk cuts federal spending, his own firms have received billions in contracts"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["As Elon Musk has led an effort to slash government spending, his own companies have, over the last few years, received billions of dollars in government contracts."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["As Trump pushes whirlwind agenda, DOJ is challenged to defend his orders in court"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["As Donald Trump presses his breakneck effort to remake the government, the flurry of lawsuits pushing back have seemingly overwhelming the lawyers defending his orders."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["WATCH: Bronx Zoo welcomes baby silvered langur monkey"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["New York's Bronx Zoo announced that a male baby silvered langur is now on exhibit."]}]}],"header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Article title and description"},"children":["Title"]},"vAlign":"center"},{"id":"Preview","name":"Preview","type":"character","show":false},{"id":"Link","name":"Link","type":"character","header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Link to full article in new window"},"children":["Link"]},"html":true,"maxWidth":75,"vAlign":"center"},{"id":"url","name":"url","type":"character","show":false}],"pagination":false,"highlight":true,"striped":true,"theme":{"backgroundColor":"#F5F2E7","stripedColor":"#fffdf5","highlightColor":"#e3e1dc"},"dataKey":"5922116df8f318e45b80883a38f42d40"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<h5>
+Articles from 2/9/25 - 2/17/25
+</h5>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="openai" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" data-scrolling="true" aria-labelledby="tab-openai">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 90fr) minmax(3em, 10fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<h3>
+OpenAI higlights: February 15, 2025
+</h3>
+<h5>
+<i>Most popular OpenAI articles from <a href="https://newsapi.org/" target="_blank">NewsAPI</a>. Updated every Sunday.</i>
+</h5>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="reactable html-widget html-fill-item html-fill-container" id="htmlwidget-668bcc279d27c69e9d4e" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-668bcc279d27c69e9d4e">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Rank":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"Image":["https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/02/9to5neural-elon-musk-1.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/02/ignore-discord.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2024/07/TSMC-ahead-of-schedule-on-trial-production-of-2nm-chips.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/02/9to5neural-chatgpt-5.webp?resize=1200%2C628&quality=82&strip=all&ssl=1","https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2024/10/Is-Apple-really-two-years-behind-on-AI.webp?resize=1200%2C628&quality=82&strip=all&ssl=1","https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/01/runtime-podcast-fi.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","https://cdn.anfalmushtaq.com/static/imgs/blog/2025-02-08-deep-dive-into-llms-like-chatgpt-tldr/deep-dive.png","https://photos5.appleinsider.com/gallery/62630-129918-Siri-animation-xl.jpg","https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png","","","","https://s.yimg.com/ny/api/res/1.2/v4vjuMw83AspvSftOzdXyQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/226ed9ed0936942adb97f3d56073e411","https://media.zenfs.com/en/thewrap.com/4f9107db6c4a89328ef99a4e4ec8cfd6","https://media.zenfs.com/en/quartz.com/094f99b9c11cf9f59b8290dc307fa015","https://opengraph.githubassets.com/a1cb73a0f040e6c00ab94ae2d370613f9fdcb97c770a0931448251a2e5a016b7/agentica-project/deepscaler","https://opengraph.githubassets.com/e7b7ad3b1e3f41b807f08cafc427cd33037f9da05458cbe047e46b2f1b861cee/nexsol-technologies/pgassistant","https://gizmodo.com/app/uploads/2024/11/1MinAI-1.jpg","https://gizmodo.com/app/uploads/2024/12/openai-corporate-transition.jpg","https://gizmodo.com/app/uploads/2025/01/musk-openai-antitrust.jpg"],"Title":["9to5Neural: Elon Musk tries to buy OpenAI, Sam Altman declines but says they’ll take Twitter","Discord introduces button to ignore people without them knowing","OpenAI expects to have its first custom AI chip by the end of the year","9to5Neural: ChatGPT-5 just ‘months’ away, here’s how it will work","Report reveals details of how Apple Intelligence will work in China","Runtime 003: Boom goes quiet, T-Mobile Starlink explained, Musk’s OpenAI bid","TL;DR of Deep Dive into LLMs Like ChatGPT by Andrej Karpathy","Alibaba to manipulate Apple Intelligence output in China for censorship","PhD Knowledge Not Required: A Reasoning Challenge for Large Language Models","Real or 'ridiculous'? Confusion over Elon Musk's bid for OpenAI","Gemini Advanced can now recall your past conversations to inform its responses","1% Equity for Founding Engineers Is BS","Amazon.com (AMZN): RBC Raises Price Target Amid AWS Strength and AI Investment","Elon Musk Leads $97.4 Billion Bid to Acquire OpenAI, Sam Altman Claps Back With ‘No Thanks’ Burn on X","Palantir stock has been on a tear. But a reckoning could come soon","Replicating Deepseek-R1 for $4500: RL Boosts 1.5B Model Beyond o1-preview","PgAssistant: OSS tool to help devs understand and optimize PG performance","$40 for an All-in-One AI Tool Lifetime Plan, Get Access to ChatGPT, Gemini, and More With 1minAI at 82% Off","ChatGPT’s Political Views Are Shifting Right, a New Analysis Finds","Elon Musk Offers to Buy OpenAI for $97.4 Billion in Unsolicited Bid: Report"],"Preview":["Welcome to 9to5Neural. AI moves fast. We help you keep up. Last week everyone drank a big glass of DeepSeek with a side of R1. Refreshing as that was, the world of AI has started to calm — WAIT, WHAT?! Elon Musk is trying to buy OpenAI? Here we go again… \n\n\n\n…","As part of the Safer Internet Day 2025 awareness campaign, the popular messaging platform Discord announced on Monday a new feature that will help users ignore other people without them knowing. With just a button, you can now easily mute someone on Discord.\n…","As the industry embraces artificial intelligence, the need for chips ready for AI tasks has increased considerably in recent years. While Nvidia is currently the main supplier of AI chips, OpenAI (the company behind ChatGPT) wants to have its first custom chi…","Welcome to 9to5Neural. AI moves fast. We help you keep up. Earlier this week, Elon Musk started a bid to buy OpenAI, prompting Sam Altman to informally decline, but poking back about buying Twitter. Entertaining as that was, the world of AI has started to cal…","As reported earlier today, Apple has officially partnered with Alibaba to enable Apple Intelligence for iPhone users in China. The country has strict regulatory requirements on artificial intelligence, which has led Apple to partner with Chinese companies for…","Sophia Tung and Zac Hall discuss the evolution of tech news sources, the challenges of launching new tech verticals, and the need for an AI news platform. They explore the impact of professional audio equipment on podcasting, audience engagement, and diverse …","A TL;DR version of Andrej Karpathy's \"Deep dive into LLMs like ChatGPT\" video.","Apple will finally be able to launch Apple Intelligence in China, but the cost is allowing Alibaba to manipulate AI output to be acceptable to the Chinese government.Apple Intelligence coming to ChinaApple Intelligence is an Apple-built artificial intelligenc…","Existing benchmarks for frontier models often test specialized, ``PhD-level'' knowledge that is difficult for non-experts to grasp. In contrast, we present a benchmark based on the NPR Sunday Puzzle Challenge that requires only general knowledge. Our benchmar…","If you click 'Accept all', we and our partners, including 239 who are part of the IAB Transparency &amp; Consent Framework, will also store and/or access information on a device (in other words, use … [+702 chars]","Google is making Gemini just a bit better. Starting today, the company's chatbot will recall past conversations in an effort to provide more useful responses. \"That means no more starting over from scratch or having to search for a previous conversation threa…","Web scraping with AI","We recently published a list of 10 AI News Updates You Should Not Miss. In this article, we are going to take a look at where Amazon.com, Inc. (NASDAQ:AMZN) ...","The bid adds another layer to Musk's ongoing feud with the OpenAI CEO, who is pushing to go for-profit The post Elon Musk Leads $97.4 Billion Bid to Acquire ...","Palantir Technologies (PLTR) is the top-performing stock in the S&P 500 to start 2025, soaring 50% so far this year. But the software company’s bright...","Democratizing Reinforcement Learning for LLMs. Contribute to agentica-project/deepscaler development by creating an account on GitHub.","PgAssistant is an open-source tool designed to help developers understand and optimize their PostgreSQL database performance. - nexsol-technologies/pgassistant","Master this top-rated artificial intelligence platform and develop AI skills to keep you at the top of the job market.","While the chatbot still seems to lean left on many issues, its bias is changing.","The billionaire oligarch says he wants OpenAI to become a \"safety-focused force for good.\""],"Link":["<a href=\"https://9to5mac.com/2025/02/10/9to5neural-elon-musk-tries-to-buy-openai-sam-altman-declines-but-says-theyll-take-twitter/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://9to5mac.com/2025/02/10/discord-ignore-button/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://9to5mac.com/2025/02/10/openai-first-custom-ai-chip/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://9to5mac.com/2025/02/12/9to5neural-chatgpt-5-just-months-away-heres-how-it-will-work/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://9to5mac.com/2025/02/13/apple-intelligence-china-2/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://9to5mac.com/2025/02/14/runtime-003-boom-goes-quiet-t-mobile-starlink-explained-musks-openai-bid/\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://anfalmushtaq.com/articles/deep-dive-into-llms-like-chatgpt-tldr\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://appleinsider.com/articles/25/02/14/alibaba-to-manipulate-apple-intelligence-output-in-china-for-censorship\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://arxiv.org/abs/2502.01584\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_94060632-11e7-4827-bd31-a7088595af0c\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_fc4eed14-64c6-437c-a156-d2656071ecf8\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://fetchfox.ai/a/founding-engineer-compensation\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://finance.yahoo.com/news/amazon-com-amzn-rbc-raises-215206252.html\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://finance.yahoo.com/news/elon-musk-leads-97-4-213154152.html\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://finance.yahoo.com/news/palantir-stock-tear-reckoning-could-100000008.html\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://github.com/agentica-project/deepscaler\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://github.com/nexsol-technologies/pgassistant\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://gizmodo.com/40-for-an-all-in-one-ai-tool-lifetime-plan-get-access-to-chatgpt-gemini-and-more-with-1minai-at-82-off-2000562693\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://gizmodo.com/chatgpts-political-views-are-shifting-right-a-new-analysis-finds-2000562328\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>","<a href=\"https://gizmodo.com/elon-musk-offers-to-buy-openai-for-97-4-billion-in-unsolicited-bid-report-2000561925\" style=\"text-decoration:none\" target =\"_blank\">&#x1F517;<\/a>"],"url":["https://9to5mac.com/2025/02/10/9to5neural-elon-musk-tries-to-buy-openai-sam-altman-declines-but-says-theyll-take-twitter/","https://9to5mac.com/2025/02/10/discord-ignore-button/","https://9to5mac.com/2025/02/10/openai-first-custom-ai-chip/","https://9to5mac.com/2025/02/12/9to5neural-chatgpt-5-just-months-away-heres-how-it-will-work/","https://9to5mac.com/2025/02/13/apple-intelligence-china-2/","https://9to5mac.com/2025/02/14/runtime-003-boom-goes-quiet-t-mobile-starlink-explained-musks-openai-bid/","https://anfalmushtaq.com/articles/deep-dive-into-llms-like-chatgpt-tldr","https://appleinsider.com/articles/25/02/14/alibaba-to-manipulate-apple-intelligence-output-in-china-for-censorship","https://arxiv.org/abs/2502.01584","https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_94060632-11e7-4827-bd31-a7088595af0c","https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_fc4eed14-64c6-437c-a156-d2656071ecf8","https://fetchfox.ai/a/founding-engineer-compensation","https://finance.yahoo.com/news/amazon-com-amzn-rbc-raises-215206252.html","https://finance.yahoo.com/news/elon-musk-leads-97-4-213154152.html","https://finance.yahoo.com/news/palantir-stock-tear-reckoning-could-100000008.html","https://github.com/agentica-project/deepscaler","https://github.com/nexsol-technologies/pgassistant","https://gizmodo.com/40-for-an-all-in-one-ai-tool-lifetime-plan-get-access-to-chatgpt-gemini-and-more-with-1minai-at-82-off-2000562693","https://gizmodo.com/chatgpts-political-views-are-shifting-right-a-new-analysis-finds-2000562328","https://gizmodo.com/elon-musk-offers-to-buy-openai-for-97-4-billion-in-unsolicited-bid-report-2000561925"]},"columns":[{"id":"Rank","name":"Rank","type":"numeric","header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Popularity ranking according to NewsAPI"},"children":["Rank"]},"maxWidth":75,"vAlign":"center"},{"id":"Image","name":"Image","type":"character","cell":[{"name":"img","attribs":{"src":"https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/02/9to5neural-elon-musk-1.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/02/ignore-discord.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2024/07/TSMC-ahead-of-schedule-on-trial-production-of-2nm-chips.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/02/9to5neural-chatgpt-5.webp?resize=1200%2C628&quality=82&strip=all&ssl=1","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2024/10/Is-Apple-really-two-years-behind-on-AI.webp?resize=1200%2C628&quality=82&strip=all&ssl=1","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/01/runtime-podcast-fi.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://cdn.anfalmushtaq.com/static/imgs/blog/2025-02-08-deep-dive-into-llms-like-chatgpt-tldr/deep-dive.png","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://photos5.appleinsider.com/gallery/62630-129918-Siri-animation-xl.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://s.yimg.com/ny/api/res/1.2/v4vjuMw83AspvSftOzdXyQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/226ed9ed0936942adb97f3d56073e411","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://media.zenfs.com/en/thewrap.com/4f9107db6c4a89328ef99a4e4ec8cfd6","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://media.zenfs.com/en/quartz.com/094f99b9c11cf9f59b8290dc307fa015","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://opengraph.githubassets.com/a1cb73a0f040e6c00ab94ae2d370613f9fdcb97c770a0931448251a2e5a016b7/agentica-project/deepscaler","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://opengraph.githubassets.com/e7b7ad3b1e3f41b807f08cafc427cd33037f9da05458cbe047e46b2f1b861cee/nexsol-technologies/pgassistant","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://gizmodo.com/app/uploads/2024/11/1MinAI-1.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://gizmodo.com/app/uploads/2024/12/openai-corporate-transition.jpg","height":"100px"},"children":[]},{"name":"img","attribs":{"src":"https://gizmodo.com/app/uploads/2025/01/musk-openai-antitrust.jpg","height":"100px"},"children":[]}],"header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Publication image, if available"},"children":["Image"]},"maxWidth":300,"align":"center","vAlign":"center"},{"id":"Title","name":"Title / Preview","type":"character","cell":[{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["9to5Neural: Elon Musk tries to buy OpenAI, Sam Altman declines but says they’ll take Twitter"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Welcome to 9to5Neural. AI moves fast. We help you keep up. Last week everyone drank a big glass of DeepSeek with a side of R1. Refreshing as that was, the world of AI has started to calm — WAIT, WHAT?! Elon Musk is trying to buy OpenAI? Here we go again… \n\n\n\n…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Discord introduces button to ignore people without them knowing"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["As part of the Safer Internet Day 2025 awareness campaign, the popular messaging platform Discord announced on Monday a new feature that will help users ignore other people without them knowing. With just a button, you can now easily mute someone on Discord.\n…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["OpenAI expects to have its first custom AI chip by the end of the year"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["As the industry embraces artificial intelligence, the need for chips ready for AI tasks has increased considerably in recent years. While Nvidia is currently the main supplier of AI chips, OpenAI (the company behind ChatGPT) wants to have its first custom chi…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["9to5Neural: ChatGPT-5 just ‘months’ away, here’s how it will work"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Welcome to 9to5Neural. AI moves fast. We help you keep up. Earlier this week, Elon Musk started a bid to buy OpenAI, prompting Sam Altman to informally decline, but poking back about buying Twitter. Entertaining as that was, the world of AI has started to cal…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Report reveals details of how Apple Intelligence will work in China"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["As reported earlier today, Apple has officially partnered with Alibaba to enable Apple Intelligence for iPhone users in China. The country has strict regulatory requirements on artificial intelligence, which has led Apple to partner with Chinese companies for…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Runtime 003: Boom goes quiet, T-Mobile Starlink explained, Musk’s OpenAI bid"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Sophia Tung and Zac Hall discuss the evolution of tech news sources, the challenges of launching new tech verticals, and the need for an AI news platform. They explore the impact of professional audio equipment on podcasting, audience engagement, and diverse …"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["TL;DR of Deep Dive into LLMs Like ChatGPT by Andrej Karpathy"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["A TL;DR version of Andrej Karpathy's \"Deep dive into LLMs like ChatGPT\" video."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Alibaba to manipulate Apple Intelligence output in China for censorship"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Apple will finally be able to launch Apple Intelligence in China, but the cost is allowing Alibaba to manipulate AI output to be acceptable to the Chinese government.Apple Intelligence coming to ChinaApple Intelligence is an Apple-built artificial intelligenc…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["PhD Knowledge Not Required: A Reasoning Challenge for Large Language Models"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Existing benchmarks for frontier models often test specialized, ``PhD-level'' knowledge that is difficult for non-experts to grasp. In contrast, we present a benchmark based on the NPR Sunday Puzzle Challenge that requires only general knowledge. Our benchmar…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Real or 'ridiculous'? Confusion over Elon Musk's bid for OpenAI"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["If you click 'Accept all', we and our partners, including 239 who are part of the IAB Transparency &amp; Consent Framework, will also store and/or access information on a device (in other words, use … [+702 chars]"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Gemini Advanced can now recall your past conversations to inform its responses"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Google is making Gemini just a bit better. Starting today, the company's chatbot will recall past conversations in an effort to provide more useful responses. \"That means no more starting over from scratch or having to search for a previous conversation threa…"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["1% Equity for Founding Engineers Is BS"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Web scraping with AI"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Amazon.com (AMZN): RBC Raises Price Target Amid AWS Strength and AI Investment"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["We recently published a list of 10 AI News Updates You Should Not Miss. In this article, we are going to take a look at where Amazon.com, Inc. (NASDAQ:AMZN) ..."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Elon Musk Leads $97.4 Billion Bid to Acquire OpenAI, Sam Altman Claps Back With ‘No Thanks’ Burn on X"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The bid adds another layer to Musk's ongoing feud with the OpenAI CEO, who is pushing to go for-profit The post Elon Musk Leads $97.4 Billion Bid to Acquire ..."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Palantir stock has been on a tear. But a reckoning could come soon"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Palantir Technologies (PLTR) is the top-performing stock in the S&P 500 to start 2025, soaring 50% so far this year. But the software company’s bright..."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Replicating Deepseek-R1 for $4500: RL Boosts 1.5B Model Beyond o1-preview"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Democratizing Reinforcement Learning for LLMs. Contribute to agentica-project/deepscaler development by creating an account on GitHub."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["PgAssistant: OSS tool to help devs understand and optimize PG performance"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["PgAssistant is an open-source tool designed to help developers understand and optimize their PostgreSQL database performance. - nexsol-technologies/pgassistant"]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["$40 for an All-in-One AI Tool Lifetime Plan, Get Access to ChatGPT, Gemini, and More With 1minAI at 82% Off"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["Master this top-rated artificial intelligence platform and develop AI skills to keep you at the top of the job market."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["ChatGPT’s Political Views Are Shifting Right, a New Analysis Finds"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["While the chatbot still seems to lean left on many issues, its bias is changing."]}]},{"name":"div","attribs":{},"children":[{"name":"div","attribs":{"style":{"fontWeight":600,"fontSize":"24px"}},"children":["Elon Musk Offers to Buy OpenAI for $97.4 Billion in Unsolicited Bid: Report"]},{"name":"div","attribs":{"style":{"fontSize":"16px"}},"children":["The billionaire oligarch says he wants OpenAI to become a \"safety-focused force for good.\""]}]}],"header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Article title and description"},"children":["Title"]},"vAlign":"center"},{"id":"Preview","name":"Preview","type":"character","show":false},{"id":"Link","name":"Link","type":"character","header":{"name":"abbr","attribs":{"style":{"cursor":"help"},"title":"Link to full article in new window"},"children":["Link"]},"html":true,"maxWidth":75,"vAlign":"center"},{"id":"url","name":"url","type":"character","show":false}],"pagination":false,"highlight":true,"striped":true,"theme":{"backgroundColor":"#F5F2E7","stripedColor":"#fffdf5","highlightColor":"#e3e1dc"},"dataKey":"4fa66aa8eff56a72badf44f24703dc13"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<h5>
+Articles from 2/9/25 - 2/17/25
+</h5>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/sgrever\.github\.io\/tech-feed\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>
