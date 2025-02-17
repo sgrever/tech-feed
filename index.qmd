@@ -135,12 +135,12 @@ create_article_results <- function(url) {
 ```{r prep-functions}
 #| output: false
 
-# image render
+# Image render
 render_image <- function(url) {
   as.character(tags$img(src = url, height = '100px'))
 }
 
-# set up for reactable
+# Set up for reactable
 display_prep <- function(tab) {
   #' @title Prepare tables for display
   #' 
@@ -211,7 +211,7 @@ display_prep <- function(tab) {
 ```{r reactable-functions}
 #| output: false
 
-# hover text
+# Hover text
 with_tooltip <- function(value, tooltip) {
   tags$abbr(
     style = "cursor: help",
@@ -219,7 +219,7 @@ with_tooltip <- function(value, tooltip) {
     value)
 }
 
-# build reactable
+# Build reactable
 news_reactable <- function(display_data) {
   #' @title Make News Reactble
   #' 
@@ -342,10 +342,10 @@ openai_url <- glue(
 #  EVAL: F BEFORE PUBLISHING
 ########################################
 
-articles_popular <- readRDS("data/articles_popular.RDS") 
-articles_doge <- readRDS("data/articles_doge.RDS")
-articles_cyber <- readRDS("data/articles_cyber.RDS")
-articles_openai <- readRDS("data/articles_ai2.RDS")
+# articles_popular <- readRDS("data/articles_popular.RDS") 
+# articles_doge <- readRDS("data/articles_doge.RDS")
+# articles_cyber <- readRDS("data/articles_cyber.RDS")
+# articles_openai <- readRDS("data/articles_ai2.RDS")
 ```
 
 ```{r call-api}
